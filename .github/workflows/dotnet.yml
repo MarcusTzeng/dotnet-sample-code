@@ -10,7 +10,8 @@ on:
     branches: [ "master" ]
 
 jobs:
-  build:
+
+  dotnet-build:
 
     # runs-on: ubuntu-latest
     runs-on: self-hosted
@@ -34,3 +35,14 @@ jobs:
       run: |
         cd ./App_ma
         dotnet test --no-build --verbosity normal
+
+  docker-build:
+    runs-on: self-hosted
+    needs: docker-build
+    steps:
+      - name: Build Docker image
+        run: |
+          docker build -t github/counter-image -f ./App_ma/Dockerfile ./App_ma
+
+
+  
