@@ -23,7 +23,7 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run:
+      run: |
         cd ./App_ma
         dotnet build --no-restore
     - name: Test
