@@ -1,0 +1,59 @@
+# Build results
+**/[Dd]ebug/
+**/[Rr]elease/
+**/x64/
+**/x86/
+**/[Aa]ppPackages/
+*.build.csproj
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Mono Auto Generated Files
+mono_crash.*
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folders for Binary, Object, and Executable files
+**/[Bb]in/
+**/[Oo]bj/
+*.dll
+*.exe
+*.pdb
+*.cache
+*.ilk
+*.log
+*.mdf
+*.ldf
+*.ndb
+*.ndk
+*.ndu
+*.nupkg
+*.refresh
+*.ncb
+*.sdf
+*.vcxproj.user
+*.pfx
+*.publishsettings
+
+# Include PDBs
+# If you're using symbol servers to provide your PDBs, you might want to delete this comment block
+# *.pdb
+
+# Visual Studio Code specific
+.vscode/
+*.code-workspace
+
+# Rider specific
+.idea/
+.idea/*
+
+# Resharper specific
+.ReSharper*/
+*.DotSettings.user
