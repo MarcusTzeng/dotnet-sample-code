@@ -43,6 +43,8 @@ jobs:
 
   docker-build:
     runs-on: self-hosted
+    env:
+      DOTNET_INSTALL_DIR: "./.dotnet"
     needs: dotnet-build
     steps:
       - name: Download build artifacts
