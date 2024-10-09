@@ -25,6 +25,7 @@ jobs:
         dotnet-version: 8.0.x
     - name: Restore dependencies
       run: |
+        ls
         cd ./App_ma
         dotnet restore
     - name: Build
@@ -53,6 +54,7 @@ jobs:
           name: dotnet-artifacts
       - name: Build Docker image
         run: |
+          ls
           docker build -t github/counter-image -f ./App_ma/Dockerfile ./App_ma
 
 
