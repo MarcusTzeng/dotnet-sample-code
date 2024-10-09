@@ -35,11 +35,20 @@ jobs:
       run: |
         cd ./App_ma
         dotnet test --no-build --verbosity normal
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: dotnet-artifacts
+        path: ./App_ma  
 
   docker-build:
     runs-on: self-hosted
     needs: dotnet-build
     steps:
+      - name: Download build artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: dotnet-artifacts
       - name: Build Docker image
         run: |
           docker build -t github/counter-image -f ./App_ma/Dockerfile ./App_ma
