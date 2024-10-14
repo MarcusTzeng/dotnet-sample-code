@@ -23,6 +23,9 @@ jobs:
       actions: write
       contents: read
     steps:
+    - name: Configure Git Safe Directory
+      run: |
+        git config --global --add safe.directory /__w/dotnet-sample-code/dotnet-sample-code
     # - uses: actions/checkout@v4
     - uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
       with:
