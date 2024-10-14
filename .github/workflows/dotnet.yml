@@ -19,6 +19,9 @@ jobs:
       DOTNET_INSTALL_DIR: "./.dotnet"
     container:
       image: mcr.microsoft.com/dotnet/sdk:9.0
+    permissions:
+      actions: write
+      contents: read
     steps:
     - uses: actions/checkout@v4
       with:
