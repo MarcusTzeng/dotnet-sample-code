@@ -8,6 +8,10 @@ on:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
+    
+permissions:
+  actions: write
+  contents: read
 
 jobs:
 
@@ -20,9 +24,7 @@ jobs:
       ACTIONS_STEP_DEBUG: true
     container:
       image: mcr.microsoft.com/dotnet/sdk:9.0
-    permissions:
-      actions: write
-      contents: read
+
     steps:
     - uses: actions/checkout@v4
       with:
