@@ -18,14 +18,15 @@ jobs:
     env:
       DOTNET_INSTALL_DIR: "./.dotnet"
     container:
-      image: alpine/git
+      image: mcr.microsoft.com/dotnet/sdk:9.0
     permissions:
       actions: write
       contents: read
     steps:
-    - uses: actions/checkout@v4
-      # with:
-      #   token: ${{ secrets.ACTIONS_TOKEN }}
+    # - uses: actions/checkout@v4
+    - uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
+      with:
+        token: ${{ secrets.ACTIONS_TOKEN }}
     # - name: Setup .NET
     #   uses: actions/setup-dotnet@v4
     #   run:
