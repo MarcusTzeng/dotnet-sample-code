@@ -22,7 +22,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
       with:
-        token: eeeee
+        token: ${{secrets.ACTIONS_TOKEN}}
     # - name: Setup .NET
     #   uses: actions/setup-dotnet@v4
     #   run:
