@@ -26,19 +26,20 @@ jobs:
       image: hsof-mis-harbor.higgstar.com/library/gitlab-ci/tanka:v1.28.9
 
     steps:
-    - name: Before Steps - Git Config
-      shell: bash
-      run: |
-        git config --global credential.helper cache
-        git config --global credential.helper 'cache --timeout=3600'
-        git config --global --add safe.directory "$(pwd)"
-        git credential approve <<EOF
-        protocol=https
-        host=github.com
-        username=oauth2
-        password=${{ inputs.ACCESS_TOKEN_GITHUB }}
-        EOF
-    - uses: actions/checkout@v4
+    # - name: Before Steps - Git Config
+    #   shell: bash
+    #   run: |
+    #     git config --global credential.helper cache
+    #     git config --global credential.helper 'cache --timeout=3600'
+    #     git config --global --add safe.directory "$(pwd)"
+    #     git credential approve <<EOF
+    #     protocol=https
+    #     host=github.com
+    #     username=oauth2
+    #     password=${{ inputs.ACCESS_TOKEN_GITHUB }}
+    #     EOF
+    - name: check code 
+      uses: actions/checkout@v4
       with:
         token: ${{ secrets.ACTIONS_TOKEN }}
     # - name: Setup .NET
