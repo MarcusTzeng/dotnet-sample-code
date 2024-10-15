@@ -26,46 +26,46 @@ jobs:
       image: hsof-mis-harbor.higgstar.com/library/gitlab-ci/tanka:v1.28.9
 
     steps:
-    # - name: Before Steps - Git Config
-    #   shell: bash
-    #   run: |
-    #     git config --global credential.helper cache
-    #     git config --global credential.helper 'cache --timeout=3600'
-    #     git config --global --add safe.directory "$(pwd)"
-    #     git credential approve <<EOF
-    #     protocol=https
-    #     host=github.com
-    #     username=oauth2
-    #     password=${{ inputs.ACCESS_TOKEN_GITHUB }}
-    #     EOF
-    - name: check code 
-      uses: actions/checkout@v4
-      with:
-        token: ${{ secrets.ACTIONS_TOKEN }}
-    # - name: Setup .NET
-    #   uses: actions/setup-dotnet@v4
-    #   run:
-    #   with:
-    #     dotnet-version: 8.0.x
-    - name: Restore dependencies
-      run: |
-        pwd
-        ls
-        cd ./App_ma
-        dotnet restore
-    - name: Build
-      run: |
-        cd ./App_ma
-        dotnet build --no-restore
-    - name: Test
-      run: |
-        cd ./App_ma
-        dotnet test --no-build --verbosity normal
-    - name: Upload build artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        name: dotnet-artifacts
-        path: ./App_ma  
+      # - name: Before Steps - Git Config
+      #   shell: bash
+      #   run: |
+      #     git config --global credential.helper cache
+      #     git config --global credential.helper 'cache --timeout=3600'
+      #     git config --global --add safe.directory "$(pwd)"
+      #     git credential approve <<EOF
+      #     protocol=https
+      #     host=github.com
+      #     username=oauth2
+      #     password=${{ inputs.ACCESS_TOKEN_GITHUB }}
+      #     EOF
+      - name: check code 
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.ACTIONS_TOKEN }}
+      # - name: Setup .NET
+      #   uses: actions/setup-dotnet@v4
+      #   run:
+      #   with:
+      #     dotnet-version: 8.0.x
+      - name: Restore dependencies
+        run: |
+          pwd
+          ls
+          cd ./App_ma
+          dotnet restore
+      - name: Build
+        run: |
+          cd ./App_ma
+          dotnet build --no-restore
+      - name: Test
+        run: |
+          cd ./App_ma
+          dotnet test --no-build --verbosity normal
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: dotnet-artifacts
+          path: ./App_ma  
 
   docker-build:
     runs-on: self-hosted
