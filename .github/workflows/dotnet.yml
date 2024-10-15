@@ -22,8 +22,8 @@ jobs:
     env:
       DOTNET_INSTALL_DIR: "./.dotnet"
       ACTIONS_STEP_DEBUG: true
-    container:
-      image: hsof-mis-harbor.higgstar.com/library/gitlab-ci/tanka:v1.28.9
+    # container:
+    #   image: hsof-mis-harbor.higgstar.com/library/gitlab-ci/tanka:v1.28.9
 
     steps:
     - uses: actions/checkout@v4
